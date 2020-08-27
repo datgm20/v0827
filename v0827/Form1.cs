@@ -12,13 +12,17 @@ namespace v0827
 {
     public partial class Form1 : Form
     {
-        int vx = -10;
-        int vy = -10;
+        int vx = rand.Next(-10,11);
+        int vy = rand.Next(-10,11);
         int point = 100;
+        static Random rand = new Random();
 
         public Form1()
         {
             InitializeComponent();
+
+            label1.Left = rand.Next(ClientSize.Width - label1.Width);
+            label1.Top = rand.Next(ClientSize.Height - label1.Height);
         }
 
         private void timer1_Tick(object sender, EventArgs e)
