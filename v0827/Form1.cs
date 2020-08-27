@@ -14,6 +14,7 @@ namespace v0827
     {
         int vx = -10;
         int vy = -10;
+        int point = 100;
 
         public Form1()
         {
@@ -22,8 +23,28 @@ namespace v0827
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            point--;
+            label3.Text = "Score " + point;
+            
             label1.Left += vx;
             label1.Top += vy;
+
+            if (label1.Left < 0)
+            {
+                vx = (int)Math.Abs(vx);
+            }
+            if (label1.Top < 0)
+            {
+                vy = (int)Math.Abs(vy);
+            }
+            if (label1.Right > ClientSize.Width)
+            {
+                vx = (int)-Math.Abs(vx);
+            }
+            if (label1.Bottom > ClientSize.Height)
+            {
+                vy = (int)-Math.Abs(vy);
+            }
 
             // 2次元クラスPoint型の変数mpを宣言
             Point mp = MousePosition;
@@ -36,6 +57,11 @@ namespace v0827
             // ラベルに座標を表示
             //// 変換したフォーム座標は、mp.X、mp.Yで取り出せる。
             label2.Text = "" + mp.X + "," + mp.Y;
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            timer1.Enabled = false;
         }
     }
 }
