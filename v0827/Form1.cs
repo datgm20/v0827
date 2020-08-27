@@ -31,19 +31,19 @@ namespace v0827
 
             if (label1.Left < 0)
             {
-                vx = (int)Math.Abs(vx);
+                vx = Math.Abs(vx);
             }
             if (label1.Top < 0)
             {
-                vy = (int)Math.Abs(vy);
+                vy = Math.Abs(vy);
             }
             if (label1.Right > ClientSize.Width)
             {
-                vx = (int)-Math.Abs(vx);
+                vx = -Math.Abs(vx);
             }
             if (label1.Bottom > ClientSize.Height)
             {
-                vy = (int)-Math.Abs(vy);
+                vy = -Math.Abs(vy);
             }
 
             // 2次元クラスPoint型の変数mpを宣言
