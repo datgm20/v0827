@@ -57,6 +57,15 @@ namespace v0827
             // ラベルに座標を表示
             //// 変換したフォーム座標は、mp.X、mp.Yで取り出せる。
             label2.Text = "" + mp.X + "," + mp.Y;
+
+            if ((mp.X >= label1.Left)
+                && (mp.X < label1.Right)
+                && (mp.Y >= label1.Top)
+                && (mp.Y < label1.Bottom)
+                )
+            {
+                timer1.Enabled = false;
+            }
         }
 
         private void label1_Click(object sender, EventArgs e)
